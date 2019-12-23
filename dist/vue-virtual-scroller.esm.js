@@ -1613,6 +1613,15 @@ var DynamicScrollerItem = {
             _this3.$set(_this3.vscrollData.validSizes, _this3.id, true);
             if (_this3.emitResize) _this3.$emit('resize', _this3.id);
           }
+          else if (size === 0) {
+            if (_this3.vscrollParent.$_undefinedMap[id]) {
+              _this3.vscrollParent.$_undefinedSizes--;
+              _this3.vscrollParent.$_undefinedMap[id] = undefined;
+            }
+            _this3.$set(_this3.vscrollData.sizes, _this3.id, size);
+            _this3.$set(_this3.vscrollData.validSizes, _this3.id, false);
+            if (_this3.emitResize) _this3.$emit('resize', _this3.id);
+          }
         }
         _this3.$_pendingSizeUpdate = null;
       });
